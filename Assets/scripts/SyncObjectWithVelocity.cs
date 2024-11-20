@@ -17,6 +17,7 @@ public class SyncObjectWithVelocity : MonoBehaviour
     private JointVelocityActiveState.RelativeTo _relativeTo = JointVelocityActiveState.RelativeTo.World;
     public EnhancedJointVelocityState e;
     public ActiveStateGroup a;
+    public float sensitivity = 10f;
     private void Awake(){
         _rigidbody = GetComponent<Rigidbody>();
     }
@@ -24,17 +25,17 @@ public class SyncObjectWithVelocity : MonoBehaviour
     private void Update(){
         //if (jointVelocityData != null)
         //{
-            // »ñÈ¡¹Ø½ÚµÄËÙ¶ÈºÍ·½Ïò
+            // è·å–å…³èŠ‚çš„é€Ÿåº¦å’Œæ–¹å‘
             //Vector3 velocity = jointVelocityData.velocity;
             //Vector3 direction = jointVelocityData.direction;
             EnhancedJointVelocityState velocityState = e.GetComponent<EnhancedJointVelocityState>();
         if (a.Active)
         {
-            // »ñÈ¡ÌØ¶¨¹Ø½ÚµÄËÙ¶ÈºÍ·½Ïò¡£
+            // è·å–ç‰¹å®šå…³èŠ‚çš„é€Ÿåº¦å’Œæ–¹å‘ã€‚
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);
             Vector3 wristDirection = velocityState.GetJointDirection(_jointToLog, _relativeTo);
             t.text = wristVelocity.ToString();
-            /*// »ñÈ¡ËùÓĞ¹Ø½ÚµÄ×´Ì¬¡£
+            /*// è·å–æ‰€æœ‰å…³èŠ‚çš„çŠ¶æ€ã€‚
             var jointStates = velocityState.GetAllJointStates();
             foreach (var jointState in jointStates)
             {
@@ -44,12 +45,12 @@ public class SyncObjectWithVelocity : MonoBehaviour
             //t.text = velocity.ToString();
             //Debug.Log(velocity);
             //Debug.Log(direction);
-            // ½«ÎïÌåµÄËÙ¶ÈÉèÖÃÎª¹Ø½ÚµÄËÙ¶È
+            // å°†ç‰©ä½“çš„é€Ÿåº¦è®¾ç½®ä¸ºå…³èŠ‚çš„é€Ÿåº¦
             if (_rigidbody != null)
             {
-                _rigidbody.velocity = wristVelocity;
+                _rigidbody.velocity = wristVelocity * sensitivity;
 
-                transform.forward = wristDirection.normalized; // ÉèÖÃÎïÌåµÄÇ°½ø·½Ïò
+                transform.forward = wristDirection.normalized; // è®¾ç½®ç‰©ä½“çš„å‰è¿›æ–¹å‘
 
             }
         }
