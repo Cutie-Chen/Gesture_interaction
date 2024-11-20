@@ -15,7 +15,7 @@ public class SyncObjectWithVelocity : MonoBehaviour
     [SerializeField]
     private HandJointId _jointToLog = HandJointId.HandStart;
     private JointVelocityActiveState.RelativeTo _relativeTo = JointVelocityActiveState.RelativeTo.World;
-    public EnhancedJointVelocityState e;
+    public EnhancedJointVelocityState velocityState;
     public ActiveStateGroup a;
     public float sensitivity = 10f;
     private void Awake(){
@@ -28,13 +28,13 @@ public class SyncObjectWithVelocity : MonoBehaviour
             // 获取关节的速度和方向
             //Vector3 velocity = jointVelocityData.velocity;
             //Vector3 direction = jointVelocityData.direction;
-            EnhancedJointVelocityState velocityState = e.GetComponent<EnhancedJointVelocityState>();
+            //EnhancedJointVelocityState velocityState = e.GetComponent<EnhancedJointVelocityState>();
         if (a.Active)
         {
             // 获取特定关节的速度和方向。
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);
             Vector3 wristDirection = velocityState.GetJointDirection(_jointToLog, _relativeTo);
-            t.text = wristVelocity.ToString();
+            //t.text = wristVelocity.ToString();
             /*// 获取所有关节的状态。
             var jointStates = velocityState.GetAllJointStates();
             foreach (var jointState in jointStates)
