@@ -14,6 +14,7 @@ public class SyncObjectWithVelocity : MonoBehaviour
     private Rigidbody _rigidbody;
     [SerializeField]
     private HandJointId _jointToLog = HandJointId.HandStart;
+    [SerializeField]
     private JointVelocityActiveState.RelativeTo _relativeTo = JointVelocityActiveState.RelativeTo.World;
     public EnhancedJointVelocityState velocityState;
     public ActiveStateGroup a;
