@@ -10,27 +10,27 @@ using TMPro;
 public class EnhancedJointVelocityState : JointVelocityActiveState
 {
         /// <summary>
-        /// »ñÈ¡ÌØ¶¨¹Ø½ÚµÄËÙ¶È¡£
+        /// è·å–ç‰¹å®šå…³èŠ‚çš„é€Ÿåº¦ã€‚
         /// </summary>
-        /// <param name="jointId">Òª²éÑ¯µÄ¹Ø½Ú ID¡£</param>
-        /// <returns>¹Ø½ÚµÄËÙ¶ÈÏòÁ¿£¬Èç¹û¹Ø½ÚÎ´ÕÒµ½»òÎŞĞ§£¬Ôò·µ»ØÁãÏòÁ¿¡£</returns>
+        /// <param name="jointId">è¦æŸ¥è¯¢çš„å…³èŠ‚ IDã€‚</param>
+        /// <returns>å…³èŠ‚çš„é€Ÿåº¦å‘é‡ï¼Œå¦‚æœå…³èŠ‚æœªæ‰¾åˆ°æˆ–æ— æ•ˆï¼Œåˆ™è¿”å›é›¶å‘é‡ã€‚</returns>
         /// 
         public Vector3 GetJointVelocity(HandJointId jointId)
         {
             if (Hand.GetJointPose(jointId, out Pose jointPose) &&
                 JointDeltaProvider.GetPositionDelta(jointId, out Vector3 velocity))
             {
-                return velocity / Time.deltaTime; // ×ª»»ÎªËÙ¶È£¨µ¥Î»/Ãë£©¡£
+                return velocity / Time.deltaTime; // è½¬æ¢ä¸ºé€Ÿåº¦ï¼ˆå•ä½/ç§’ï¼‰ã€‚
             }
             return Vector3.zero;
         }
 
         /// <summary>
-        /// »ñÈ¡ÌØ¶¨¹Ø½ÚµÄ·½ÏòÏòÁ¿¡£
+        /// è·å–ç‰¹å®šå…³èŠ‚çš„æ–¹å‘å‘é‡ã€‚
         /// </summary>
-        /// <param name="jointId">Òª²éÑ¯µÄ¹Ø½Ú ID¡£</param>
-        /// <param name="relativeTo">·½ÏòµÄ²Î¿¼×ø±êÏµ¡£</param>
-        /// <returns>·½ÏòÏòÁ¿¡£</returns>
+        /// <param name="jointId">è¦æŸ¥è¯¢çš„å…³èŠ‚ IDã€‚</param>
+        /// <param name="relativeTo">æ–¹å‘çš„å‚è€ƒåæ ‡ç³»ã€‚</param>
+        /// <returns>æ–¹å‘å‘é‡ã€‚</returns>
         public Vector3 GetJointDirection(HandJointId jointId, RelativeTo relativeTo)
         {
             if (!Hand.GetJointPose(jointId, out Pose jointPose))
@@ -41,13 +41,13 @@ public class EnhancedJointVelocityState : JointVelocityActiveState
             switch (relativeTo)
             {
                 case RelativeTo.Hand:
-                    return jointPose.forward; // Ïà¶ÔÓÚÊÖµÄÇ°ÏòÏòÁ¿¡£
+                    return jointPose.forward; // ç›¸å¯¹äºæ‰‹çš„å‰å‘å‘é‡ã€‚
                 case RelativeTo.World:
-                    return jointPose.position.normalized; // Ïà¶ÔÓÚÊÀ½çµÄ·½ÏòÏòÁ¿¡£
+                    return jointPose.position.normalized; // ç›¸å¯¹äºä¸–ç•Œçš„æ–¹å‘å‘é‡ã€‚
                 case RelativeTo.Head:
                     if (Hmd != null && Hmd.TryGetRootPose(out Pose headPose))
                     {
-                        return (jointPose.position - headPose.position).normalized; // Ïà¶ÔÓÚÍ·²¿µÄ·½ÏòÏòÁ¿¡£
+                        return (jointPose.position - headPose.position).normalized; // ç›¸å¯¹äºå¤´éƒ¨çš„æ–¹å‘å‘é‡ã€‚
                     }
                     break;
             }
@@ -55,9 +55,9 @@ public class EnhancedJointVelocityState : JointVelocityActiveState
         }
 
         /// <summary>
-        /// »ñÈ¡ËùÓĞ¹Ø½ÚµÄËÙ¶ÈºÍ·½Ïò×´Ì¬¡£
+        /// è·å–æ‰€æœ‰å…³èŠ‚çš„é€Ÿåº¦å’Œæ–¹å‘çŠ¶æ€ã€‚
         /// </summary>
-        /// <returns>°üº¬ËÙ¶ÈºÍ·½ÏòµÄ×Öµä£¬¼üÎª¹Ø½ÚÅäÖÃ¡£</returns>
+        /// <returns>åŒ…å«é€Ÿåº¦å’Œæ–¹å‘çš„å­—å…¸ï¼Œé”®ä¸ºå…³èŠ‚é…ç½®ã€‚</returns>
         public Dictionary<HandJointId, (Vector3 Velocity, Vector3 Direction)> GetAllJointStates()
         {
             Dictionary<HandJointId, (Vector3 Velocity, Vector3 Direction)> jointStates =
@@ -77,10 +77,7 @@ public class EnhancedJointVelocityState : JointVelocityActiveState
         }
         public bool Ifactive()
         {
-        if (Active)
-            return true;
-        else
-            return false;
+            return Active;
         }
     }
 
