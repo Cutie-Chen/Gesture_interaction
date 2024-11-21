@@ -35,6 +35,8 @@ public class SyncObjectWithVelocity : MonoBehaviour
             // 获取特定关节的速度和方向。
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);
             Vector3 wristDirection = velocityState.GetJointDirection(_jointToLog, _relativeTo);
+            Vector3 wristPosition = velocityState.GetJointposition(_jointToLog);
+
             //t.text = wristVelocity.ToString();
             /*// 获取所有关节的状态。
             var jointStates = velocityState.GetAllJointStates();
@@ -43,13 +45,14 @@ public class SyncObjectWithVelocity : MonoBehaviour
                 Debug.Log($"Joint: {jointState.Key}, Velocity: {jointState.Value.Velocity}, Direction: {jointState.Value.Direction}");
             }*/
 
-            //t.text = velocity.ToString();
+            t.text = wristPosition.ToString();
             //Debug.Log(velocity);
             //Debug.Log(direction);
             // 将物体的速度设置为关节的速度
             if (_rigidbody != null)
             {
                 _rigidbody.velocity = wristVelocity * sensitivity;
+                //transform.position = wristPosition * sensitivity;
 
                 transform.forward = wristDirection.normalized; // 设置物体的前进方向
 

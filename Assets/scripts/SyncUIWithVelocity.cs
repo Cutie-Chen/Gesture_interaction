@@ -19,7 +19,7 @@ public class SyncUIWithVelocity : MonoBehaviour
     public EnhancedJointVelocityState velocityState;
     public ActiveStateGroup a;
     public float sensitivity = 10f; // 调整UI运动的敏感度
-
+    //public Camera worldCamera; // 用于计算的世界摄像机
     private void Awake()
     {
         if (_uiElement == null)
@@ -33,14 +33,26 @@ public class SyncUIWithVelocity : MonoBehaviour
         if (a.Active)
         {
             // 获取特定关节的速度和方向。
+            Vector3 wristPosition = velocityState.GetJointposition(_jointToLog);
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);
             Vector3 wristDirection = velocityState.GetJointDirection(_jointToLog, _relativeTo);
 
             // 如果UI元素被分配，则同步其位置
             if (_uiElement != null)
             {
+               
+
+               /* // 将世界坐标转换为屏幕坐标
+                Vector3 screenPosition = worldCamera.WorldToScreenPoint(wristPosition);
+
+                // 将屏幕坐标转换为UI坐标
+                Vector2 uiPosition;
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(_uiElement.GetComponent<RectTransform>(), screenPosition, worldCamera, out uiPosition);
+
+                // 使用转换后的UI坐标来调整UI元素的位置
+                _uiElement.anchoredPosition += uiPosition * sensitivity;*/
                 // 使用速度更新UI元素的位置
-                _uiElement.anchoredPosition += new Vector2(wristVelocity.x, wristVelocity.y) * sensitivity;
+               _uiElement.anchoredPosition += new Vector2(wristPosition.x, wristPosition.y) * sensitivity;
 
                 // 设置UI元素的方向（如果需要）
                 //_uiElement.rotation = Quaternion.LookRotation(wristDirection.normalized, Vector3.up);

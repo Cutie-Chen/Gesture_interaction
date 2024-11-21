@@ -24,14 +24,23 @@ public class EnhancedJointVelocityState : JointVelocityActiveState
             }
             return Vector3.zero;
         }
+    public Vector3 GetJointposition(HandJointId jointId)
+    {
+        if (Hand.GetJointPose(jointId, out Pose jointPose) &&
+            JointDeltaProvider.GetPositionDelta(jointId, out Vector3 velocity))
+        {
+            return velocity;
+        }
+        return Vector3.zero;
+    }
 
-        /// <summary>
-        /// 获取特定关节的方向向量。
-        /// </summary>
-        /// <param name="jointId">要查询的关节 ID。</param>
-        /// <param name="relativeTo">方向的参考坐标系。</param>
-        /// <returns>方向向量。</returns>
-        public Vector3 GetJointDirection(HandJointId jointId, RelativeTo relativeTo)
+    /// <summary>
+    /// 获取特定关节的方向向量。
+    /// </summary>
+    /// <param name="jointId">要查询的关节 ID。</param>
+    /// <param name="relativeTo">方向的参考坐标系。</param>
+    /// <returns>方向向量。</returns>
+    public Vector3 GetJointDirection(HandJointId jointId, RelativeTo relativeTo)
         {
             if (!Hand.GetJointPose(jointId, out Pose jointPose))
             {
