@@ -17,7 +17,7 @@ public class SyncObjectWithVelocity : MonoBehaviour
     [SerializeField]
     private JointVelocityActiveState.RelativeTo _relativeTo = JointVelocityActiveState.RelativeTo.World;
     public EnhancedJointVelocityState velocityState;
-    public ActiveStateGroup a;
+    public ActiveStateGroup activestategroup;
     public float sensitivity = 10f;
     private void Awake(){
         _rigidbody = GetComponent<Rigidbody>();
@@ -30,7 +30,7 @@ public class SyncObjectWithVelocity : MonoBehaviour
             //Vector3 velocity = jointVelocityData.velocity;
             //Vector3 direction = jointVelocityData.direction;
             //EnhancedJointVelocityState velocityState = e.GetComponent<EnhancedJointVelocityState>();
-        if (a.Active)
+        if (activestategroup.Active)
         {
             // 获取特定关节的速度和方向。
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);

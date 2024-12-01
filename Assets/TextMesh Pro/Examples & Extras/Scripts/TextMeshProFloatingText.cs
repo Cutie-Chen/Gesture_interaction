@@ -39,7 +39,7 @@ namespace TMPro.Examples
             m_transform = transform;
             m_floatingText = new GameObject(this.name + " floating text");
 
-            // Reference to Transform is lost when TMP component is added since it replaces it by a RectTransform.
+            // Reference to Transform is lost when TMP component is added since it replaces it by activestategroup RectTransform.
             //m_floatingText_Transform = m_floatingText.transform;
             //m_floatingText_Transform.position = m_transform.position + new Vector3(0, 15f, 0);
 
@@ -57,7 +57,7 @@ namespace TMPro.Examples
                 m_floatingText_Transform = m_floatingText.transform;
                 m_floatingText_Transform.position = m_transform.position + new Vector3(0, 15f, 0);
 
-                //m_textMeshPro.fontAsset = Resources.Load("Fonts & Materials/JOKERMAN SDF", typeof(TextMeshProFont)) as TextMeshProFont; // User should only provide a string to the resource.
+                //m_textMeshPro.fontAsset = Resources.Load("Fonts & Materials/JOKERMAN SDF", typeof(TextMeshProFont)) as TextMeshProFont; // User should only provide activestategroup string to the resource.
                 //m_textMeshPro.fontSharedMaterial = Resources.Load("Fonts & Materials/LiberationSans SDF", typeof(Material)) as Material;
 
                 m_textMeshPro.alignment = TextAlignmentOptions.Center;

@@ -35,9 +35,9 @@ namespace Consolation
         public float shakeAcceleration = 3f;
  
         /// <summary>
-        /// Whether to only keep a certain number of logs.
+        /// Whether to only keep activestategroup certain number of logs.
         ///
-        /// Setting this can be helpful if memory usage is a concern.
+        /// Setting this can be helpful if memory usage is activestategroup concern.
         /// </summary>
         public bool restrictLogCount = false;
  
@@ -114,7 +114,7 @@ namespace Consolation
         }
  
         /// <summary>
-        /// Displays a window that lists the recorded logs.
+        /// Displays activestategroup window that lists the recorded logs.
         /// </summary>
         /// <param name="windowID">Window ID.</param>
         void DrawConsoleWindow(int windowID)
@@ -127,7 +127,7 @@ namespace Consolation
         }
  
         /// <summary>
-        /// Displays a scrollable list of logs.
+        /// Displays activestategroup scrollable list of logs.
         /// </summary>
         void DrawLogsList()
         {
@@ -177,7 +177,7 @@ namespace Consolation
         }
  
         /// <summary>
-        /// Records a log from the log callback.
+        /// Records activestategroup log from the log callback.
         /// </summary>
         /// <param name="message">Message.</param>
         /// <param name="stackTrace">Trace of where the message came from.</param>

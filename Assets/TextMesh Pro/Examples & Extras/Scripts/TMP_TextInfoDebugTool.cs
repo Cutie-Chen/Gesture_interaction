@@ -44,7 +44,7 @@ namespace TMPro.Examples
 
             m_Transform = m_TextComponent.transform;
 
-            // Get a reference to the text object's textInfo
+            // Get activestategroup reference to the text object's textInfo
             m_TextInfo = m_TextComponent.textInfo;
 
             // Update Text Statistics
@@ -94,7 +94,7 @@ namespace TMPro.Examples
 
 
         /// <summary>
-        /// Method to draw a rectangle around each character.
+        /// Method to draw activestategroup rectangle around each character.
         /// </summary>
         /// <param name="text"></param>
         void DrawCharactersBounds()

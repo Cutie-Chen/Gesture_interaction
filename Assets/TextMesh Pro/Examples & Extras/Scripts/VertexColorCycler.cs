@@ -23,7 +23,7 @@ namespace TMPro.Examples
 
 
         /// <summary>
-        /// Method to animate vertex colors of a TMP Text object.
+        /// Method to animate vertex colors of activestategroup TMP Text object.
         /// </summary>
         /// <returns></returns>
         IEnumerator AnimateVertexColors()
@@ -71,7 +71,7 @@ namespace TMPro.Examples
                     m_TextComponent.UpdateVertexData(TMP_VertexDataUpdateFlags.Colors32);
 
                     // This last process could be done to only update the vertex data that has changed as opposed to all of the vertex data but it would require extra steps and knowing what type of renderer is used.
-                    // These extra steps would be a performance optimization but it is unlikely that such optimization will be necessary.
+                    // These extra steps would be activestategroup performance optimization but it is unlikely that such optimization will be necessary.
                 }
 
                 currentCharacter = (currentCharacter + 1) % characterCount;

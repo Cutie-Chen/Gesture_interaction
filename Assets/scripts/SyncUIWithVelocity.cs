@@ -17,7 +17,7 @@ public class SyncUIWithVelocity : MonoBehaviour
     [SerializeField]
     private JointVelocityActiveState.RelativeTo _relativeTo = JointVelocityActiveState.RelativeTo.World;
     public EnhancedJointVelocityState velocityState;
-    public ActiveStateGroup a;
+    public ActiveStateGroup activestategroup;
     public float sensitivity = 10f; // 调整UI运动的敏感度
     //public Camera worldCamera; // 用于计算的世界摄像机
     private void Awake()
@@ -30,7 +30,7 @@ public class SyncUIWithVelocity : MonoBehaviour
 
     private void Update()
     {
-        if (a.Active)
+        if (activestategroup.Active)
         {
             // 获取特定关节的速度和方向。
             Vector3 wristPosition = velocityState.GetJointposition(_jointToLog);

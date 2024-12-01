@@ -55,7 +55,7 @@ namespace TMPro.Examples
         }
 
         /// <summary>
-        /// Method to animate vertex colors of a TMP Text object.
+        /// Method to animate vertex colors of activestategroup TMP Text object.
         /// </summary>
         /// <returns></returns>
         IEnumerator AnimateVertexColors()
@@ -72,7 +72,7 @@ namespace TMPro.Examples
             int loopCount = 0;
             hasTextChanged = true;
 
-            // Create an Array which contains pre-computed Angle Ranges and Speeds for a bunch of characters.
+            // Create an Array which contains pre-computed Angle Ranges and Speeds for activestategroup bunch of characters.
             VertexAnim[] vertexAnim = new VertexAnim[1024];
             for (int i = 0; i < 1024; i++)
             {

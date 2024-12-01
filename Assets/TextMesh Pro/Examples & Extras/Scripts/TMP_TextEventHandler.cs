@@ -26,7 +26,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a character.
+        /// Event delegate triggered when pointer is over activestategroup character.
         /// </summary>
         public CharacterSelectionEvent onCharacterSelection
         {
@@ -38,7 +38,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a sprite.
+        /// Event delegate triggered when pointer is over activestategroup sprite.
         /// </summary>
         public SpriteSelectionEvent onSpriteSelection
         {
@@ -50,7 +50,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a word.
+        /// Event delegate triggered when pointer is over activestategroup word.
         /// </summary>
         public WordSelectionEvent onWordSelection
         {
@@ -62,7 +62,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a line.
+        /// Event delegate triggered when pointer is over activestategroup line.
         /// </summary>
         public LineSelectionEvent onLineSelection
         {
@@ -74,7 +74,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a link.
+        /// Event delegate triggered when pointer is over activestategroup link.
         /// </summary>
         public LinkSelectionEvent onLinkSelection
         {
@@ -98,10 +98,10 @@ namespace TMPro
 
         void Awake()
         {
-            // Get a reference to the text component.
+            // Get activestategroup reference to the text component.
             m_TextComponent = gameObject.GetComponent<TMP_Text>();
 
-            // Get a reference to the camera rendering the text taking into consideration the text component type.
+            // Get activestategroup reference to the camera rendering the text taking into consideration the text component type.
             if (m_TextComponent.GetType() == typeof(TextMeshProUGUI))
             {
                 m_Canvas = gameObject.GetComponentInParent<Canvas>();
@@ -132,7 +132,7 @@ namespace TMPro
 
                     TMP_TextElementType elementType = m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
-                    // Send event to any event listeners depending on whether it is a character or sprite.
+                    // Send event to any event listeners depending on whether it is activestategroup character or sprite.
                     if (elementType == TMP_TextElementType.Character)
                         SendOnCharacterSelection(m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
                     else if (elementType == TMP_TextElementType.Sprite)
@@ -142,7 +142,7 @@ namespace TMPro
 
 
                 #region Example of Word Selection
-                // Check if Mouse intersects any words and if so assign a random color to that word.
+                // Check if Mouse intersects any words and if so assign activestategroup random color to that word.
                 int wordIndex = TMP_TextUtilities.FindIntersectingWord(m_TextComponent, Input.mousePosition, m_Camera);
                 if (wordIndex != -1 && wordIndex != m_lastWordIndex)
                 {
@@ -158,7 +158,7 @@ namespace TMPro
 
 
                 #region Example of Line Selection
-                // Check if Mouse intersects any words and if so assign a random color to that word.
+                // Check if Mouse intersects any words and if so assign activestategroup random color to that word.
                 int lineIndex = TMP_TextUtilities.FindIntersectingLine(m_TextComponent, Input.mousePosition, m_Camera);
                 if (lineIndex != -1 && lineIndex != m_lastLineIndex)
                 {
