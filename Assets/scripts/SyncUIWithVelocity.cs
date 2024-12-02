@@ -36,6 +36,7 @@ public class SyncUIWithVelocity : MonoBehaviour
             Vector3 wristPosition = velocityState.GetJointposition(_jointToLog);
             Vector3 wristVelocity = velocityState.GetJointVelocity(_jointToLog);
             Vector3 wristDirection = velocityState.GetJointDirection(_jointToLog, _relativeTo);
+            
 
             // 如果UI元素被分配，则同步其位置
             if (_uiElement != null)
