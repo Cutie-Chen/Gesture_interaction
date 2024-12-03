@@ -16,6 +16,7 @@ public class choose_one : MonoBehaviour
     public GameObject objectToSelect; // 需要选择的 UI 元素（UI 物体）
     private RectTransform objectRectTransform;
     public bool isselect;
+    public TextMeshProUGUI t;
     void Start()
     {
         // 获取物体的 RectTransform 组件
@@ -68,5 +69,9 @@ public class choose_one : MonoBehaviour
                 isselect = false;
             }
         }
+        if (isselect)
+            t.text = "选中了";
+        else
+            t.text = "未选中";
     }
 }

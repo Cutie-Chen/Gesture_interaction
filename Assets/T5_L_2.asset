@@ -21,6 +21,9 @@ MonoBehaviour:
     - _mode: 1
       _feature: 1
       _state: 3
+    - _mode: 1
+      _feature: 3
+      _state: 11
   _indexFeatureConfigs:
     _value:
     - _mode: 1
@@ -45,6 +48,9 @@ MonoBehaviour:
     - _mode: 1
       _feature: 1
       _state: 3
+    - _mode: 1
+      _feature: 3
+      _state: 11
   _pinkyFeatureConfigs:
     _value:
     - _mode: 1
@@ -53,3 +59,6 @@ MonoBehaviour:
     - _mode: 1
       _feature: 1
       _state: 3
+    - _mode: 1
+      _feature: 3
+      _state: 11

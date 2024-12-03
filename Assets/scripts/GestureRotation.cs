@@ -16,7 +16,7 @@ public class GestureRotation : MonoBehaviour
     public GameObject objectToRotate; // 需要旋转的物体
     private Vector3 lastPosition; // 上一帧的手部位置
     private float rotationAngle = 0f; // 当前物体的旋转角度
-    private float rotationSpeed = 5f; // 旋转速度因子
+    private float rotationSpeed = 100f; // 旋转速度因子
     private float movementThreshold = 0.01f; // 最小移动阈值
     private float rotationThreshold=5;
     void Start()
