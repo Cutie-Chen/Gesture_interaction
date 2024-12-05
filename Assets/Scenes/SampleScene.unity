@@ -434,7 +434,7 @@ MonoBehaviour:
   _whenSelected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1907744960}
+      - m_Target: {fileID: 666834800}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459165}
+  _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -515,7 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1916165164}
+  _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
   - {fileID: 11400000, guid: 754ff40a9056a5e459814dc23c3b6a58, type: 2}
 --- !u!4 &231624010
@@ -1077,7 +1077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459165}
+  _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -1101,7 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1916165164}
+  _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
   - {fileID: 11400000, guid: ea7bc0e390f1a994dab912a95fdeea89, type: 2}
 --- !u!4 &391365797
@@ -1251,7 +1251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4.11, y: 2.22}
+  m_AnchoredPosition: {x: 10.1, y: 2.22}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &454174398
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 454174400}
   - component: {fileID: 454174399}
   m_Layer: 0
-  m_Name: 'T9_gesture_L_2 '
+  m_Name: 'T9_gesture_R_2 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454174398}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
   m_Name: 
@@ -1291,18 +1291,6 @@ MonoBehaviour:
   _whenSelected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 479509507}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 426373636}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1360,8 +1348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459166}
+  _hand: {fileID: 841459161}
+  _transformFeatureStateProvider: {fileID: 841459165}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -1384,8 +1372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1182045612}
+  _hand: {fileID: 841459161}
+  _fingerFeatureStateProvider: {fileID: 1916165164}
   _shapes:
   - {fileID: 11400000, guid: d5de37c52d1964a42a799ee7bd6f759a, type: 2}
 --- !u!4 &454174404
@@ -1760,7 +1748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.17, y: 2.26}
+  m_AnchoredPosition: {x: -7.19, y: 2.26}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666834802
@@ -2569,7 +2557,6 @@ MonoBehaviour:
   _activeStates:
   - {fileID: 1041992115}
   - {fileID: 1041992114}
-  - {fileID: 1041992114}
   _logicOperator: 0
 --- !u!114 &1041992114
 MonoBehaviour:
@@ -2584,7 +2571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459165}
+  _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -2608,7 +2595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1916165164}
+  _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
   - {fileID: 11400000, guid: 46b37023e0a899249976e094eb22c0a0, type: 2}
 --- !u!4 &1041992116
@@ -3308,7 +3295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459165}
+  _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -3332,7 +3319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1916165164}
+  _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
   - {fileID: 11400000, guid: aa156bb4417df8c4bb008413af37a727, type: 2}
 --- !u!4 &1203092541
@@ -3446,142 +3433,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1594057359}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1274830211
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1274830217}
-  - component: {fileID: 1274830216}
-  - component: {fileID: 1274830215}
-  - component: {fileID: 1274830214}
-  - component: {fileID: 1274830213}
-  - component: {fileID: 1274830212}
-  m_Layer: 0
-  m_Name: T5_gesture_L_2 (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1274830212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selector: {fileID: 1274830213}
-  _whenSelected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1451907689}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  _whenUnselected:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1274830213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd9780be7e512049b4d33d5c9d0ac92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeState: {fileID: 1274830214}
---- !u!114 &1274830214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebd5da9a8bd22243b407f1927f4965b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _activeStates:
-  - {fileID: 1274830216}
-  - {fileID: 1274830215}
-  _logicOperator: 0
---- !u!114 &1274830215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459166}
-  _transformFeatureConfigs:
-    _values:
-    - _mode: 0
-      _feature: 6
-      _state: 18
-  _transformConfig:
-    PositionOffset: {x: 0, y: 0, z: 0}
-    RotationOffset: {x: 0, y: 0, z: 0}
-    UpVectorType: 2
-    FeatureThresholds: {fileID: 11400000, guid: 039cf5a7424e1e046b79287e9375cf09, type: 2}
---- !u!114 &1274830216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1182045612}
-  _shapes:
-  - {fileID: 11400000, guid: d5de37c52d1964a42a799ee7bd6f759a, type: 2}
---- !u!4 &1274830217
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274830211}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332892595
 GameObject:
@@ -3698,7 +3549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1360337296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3764,14 +3615,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1360337295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09a11c8d53719da4a9f1ce8d2a32e6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: {fileID: 841459162}
+  hand: {fileID: 841459161}
   jointToTrack: 6
   objectToRotate: {fileID: 1360337295}
+  _uiElement: {fileID: 1360337296}
+  activestategroup: {fileID: 1765249518}
+  velocityState: {fileID: 1765249522}
+  sensitivity: 10
 --- !u!1 &1374528672
 GameObject:
   m_ObjectHideFlags: 0
@@ -4076,7 +3931,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405926050}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
   m_Name: 
@@ -4130,7 +3985,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459161}
-  _transformFeatureStateProvider: {fileID: 841459166}
+  _transformFeatureStateProvider: {fileID: 841459165}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -4157,7 +4012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459161}
-  _fingerFeatureStateProvider: {fileID: 1182045612}
+  _fingerFeatureStateProvider: {fileID: 1916165164}
   _shapes:
   - {fileID: 11400000, guid: cfcf04738f85b5745aa8d041e222e3bd, type: 2}
 --- !u!4 &1405926058
@@ -4190,7 +4045,7 @@ GameObject:
   - component: {fileID: 1410967458}
   - component: {fileID: 1410967457}
   m_Layer: 0
-  m_Name: T9_gesture_L_1
+  m_Name: T9_gesture_R_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4269,8 +4124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459166}
+  _hand: {fileID: 841459161}
+  _transformFeatureStateProvider: {fileID: 841459165}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -4293,10 +4148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f7cfb1f9629da4494ac0840f3a3cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1182045612}
+  _hand: {fileID: 841459161}
+  _fingerFeatureStateProvider: {fileID: 1916165164}
   _shapes:
-  - {fileID: 11400000, guid: 7df9c20cd7ee2d14086f984b1e1db7bf, type: 2}
+  - {fileID: 11400000, guid: 46b37023e0a899249976e094eb22c0a0, type: 2}
 --- !u!4 &1410967462
 Transform:
   m_ObjectHideFlags: 0
@@ -4427,7 +4282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1451907690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4468,10 +4323,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ac707d58e8c72a2448cbd1ef55a2d131, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -8097833665156310129, guid: ac707d58e8c72a2448cbd1ef55a2d131, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4534,7 +4389,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -94.7984, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1451907692
@@ -5326,7 +5181,7 @@ GameObject:
   - component: {fileID: 1588878416}
   - component: {fileID: 1588878415}
   m_Layer: 0
-  m_Name: 'T9_gesture_R '
+  m_Name: T9_gesture_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5360,7 +5215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f9440d09721c849864899e8986e219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hand: {fileID: 841459161}
+  _hand: {fileID: 841459162}
   _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
@@ -5395,7 +5250,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588878411}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de76f7169412b8f4896235a1585d8939, type: 3}
   m_Name: 
@@ -5593,7 +5448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1615011132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5602,7 +5457,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615011131}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.19}
+  m_LocalPosition: {x: 0, y: 0, z: 3.71}
   m_LocalScale: {x: 0.024273284, y: 0.024273284, z: 0.024273284}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5611,7 +5466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1.36, y: 0.59}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1615011133
@@ -5969,7 +5824,7 @@ MonoBehaviour:
   _featureConfigs:
     _values:
     - _mode: 0
-      _feature: 6
+      _feature: 11
       _state: 
       _relativeTo: 1
       _worldAxis: 3
@@ -6037,7 +5892,6 @@ MonoBehaviour:
   _activeStates:
   - {fileID: 1842017160}
   - {fileID: 1842017159}
-  - {fileID: 1842017154}
   _logicOperator: 0
 --- !u!114 &1842017159
 MonoBehaviour:
@@ -6052,7 +5906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459161}
-  _transformFeatureStateProvider: {fileID: 841459166}
+  _transformFeatureStateProvider: {fileID: 841459165}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -6076,7 +5930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459161}
-  _fingerFeatureStateProvider: {fileID: 1182045612}
+  _fingerFeatureStateProvider: {fileID: 1916165164}
   _shapes:
   - {fileID: 11400000, guid: 10608ce88ba5b2f4e8f3f5ab8c020739, type: 2}
 --- !u!4 &1842017161
@@ -6119,6 +5973,7 @@ GameObject:
   - component: {fileID: 1856132219}
   - component: {fileID: 1856132218}
   - component: {fileID: 1856132220}
+  - component: {fileID: 1856132221}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -6201,6 +6056,25 @@ MonoBehaviour:
   objectToSelect: {fileID: 1856132215}
   isselect: 0
   t: {fileID: 1451907691}
+--- !u!114 &1856132221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856132215}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a11c8d53719da4a9f1ce8d2a32e6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 841459161}
+  jointToTrack: 6
+  objectToRotate: {fileID: 1856132215}
+  _uiElement: {fileID: 1856132216}
+  activestategroup: {fileID: 1765249518}
+  velocityState: {fileID: 1765249522}
+  sensitivity: 10
 --- !u!1 &1907744960
 GameObject:
   m_ObjectHideFlags: 0
@@ -6665,7 +6539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _transformFeatureStateProvider: {fileID: 841459165}
+  _transformFeatureStateProvider: {fileID: 841459166}
   _transformFeatureConfigs:
     _values:
     - _mode: 0
@@ -6689,7 +6563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hand: {fileID: 841459162}
-  _fingerFeatureStateProvider: {fileID: 1916165164}
+  _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
   - {fileID: 11400000, guid: 46b37023e0a899249976e094eb22c0a0, type: 2}
 --- !u!4 &2055216807
@@ -6828,7 +6702,7 @@ MonoBehaviour:
   _hand: {fileID: 841459162}
   _fingerFeatureStateProvider: {fileID: 1182045612}
   _shapes:
-  - {fileID: 11400000, guid: 7df9c20cd7ee2d14086f984b1e1db7bf, type: 2}
+  - {fileID: 11400000, guid: 46b37023e0a899249976e094eb22c0a0, type: 2}
 --- !u!4 &2109952617
 Transform:
   m_ObjectHideFlags: 0

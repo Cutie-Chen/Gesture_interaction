@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using TMPro;
 using Oculus.Interaction;
+using UnityEngine.EventSystems;
 
 public class choose_one : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class choose_one : MonoBehaviour
     private RectTransform objectRectTransform;
     public bool isselect;
     public TextMeshProUGUI t;
+    
     void Start()
     {
         // 获取物体的 RectTransform 组件
@@ -31,9 +33,11 @@ public class choose_one : MonoBehaviour
     public bool IsJointInsideObject(Vector3 handPosition)
     {
         // 获取 UI 元素的世界坐标范围
+        //EventSystem system = new EventSystem();
+        //system.RaycastAll()
         Vector3[] worldCorners = new Vector3[4];
         objectRectTransform.GetWorldCorners(worldCorners);
-
+        
         // 获取 UI 元素的 2D 边界框
         Vector3 topLeft = worldCorners[1];  // 左上角
         Vector3 bottomRight = worldCorners[3];  // 右下角
