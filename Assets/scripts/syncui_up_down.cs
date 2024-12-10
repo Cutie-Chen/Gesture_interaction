@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using TMPro;
 using Oculus.Interaction;
+using UnityEngine.UI;
 
 public class syncui_up_down : MonoBehaviour
 {
@@ -20,12 +21,14 @@ public class syncui_up_down : MonoBehaviour
     public ActiveStateGroup activestategroup;
     public float sensitivity = 10f; // 调整UI运动的敏感度
     //public Camera worldCamera; // 用于计算的世界摄像机
+    //public Image image;
     private void Awake()
     {
         if (_uiElement == null)
         {
             Debug.LogError("UI Element's RectTransform is not assigned!");
         }
+        
     }
 
     private void Update()
@@ -53,7 +56,7 @@ public class syncui_up_down : MonoBehaviour
                  _uiElement.anchoredPosition += uiPosition * sensitivity;*/
                 // 使用速度更新UI元素的位置
                 _uiElement.anchoredPosition += new Vector2(0, wristPosition.y) * sensitivity;
-
+               
                 // 设置UI元素的方向（如果需要）
                 //_uiElement.rotation = Quaternion.LookRotation(wristDirection.normalized, Vector3.up);
             }
