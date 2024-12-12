@@ -9,7 +9,7 @@ using Oculus.Interaction;
 
 public class HandRaycast : MonoBehaviour
 {
-    public Transform handTransform; // 手部位置
+    //public Transform handTransform; // 手部位置
     public Transform headTransform; // 头部（通常为摄像机）
     [SerializeField]
     private HandJointId _jointToLog = HandJointId.HandStart;
@@ -54,9 +54,9 @@ public class HandRaycast : MonoBehaviour
         if (Hand.GetJointPose(_jointToLog, out Pose jointPose) &&
             JointDelta.GetPositionDelta(_jointToLog, out Vector3 velocity))
         {
-            handPosition=velocity;
+            handPosition= jointPose.position;
         }
-        handPosition = Vector3.zero;
+        //handPosition = Vector3.zero;
         /*recognizer.GetFeatureVectorAndWristPos(
             TransformFeature.FingersUp,
             true,

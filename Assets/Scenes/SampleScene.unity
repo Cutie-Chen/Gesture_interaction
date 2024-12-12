@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.64, y: 0.63}
+  m_AnchoredPosition: {x: -1.29, y: 0.63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23857003
@@ -1771,11 +1771,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 479509507}
   m_CullTransparentMesh: 1
---- !u!4 &567152765 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4169086326086574538, guid: f54012181eacade4ea242c65f804720f, type: 3}
-  m_PrefabInstance: {fileID: 841459158}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &590554884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4000,8 +3995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ffd2bf0046e654583cf4c0e8b712de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handTransform: {fileID: 567152765}
-  headTransform: {fileID: 945317882}
+  headTransform: {fileID: 2006221000}
   _jointToLog: 0
   JointDelta: {fileID: 1765249515}
   maxRayDistance: 10
@@ -4141,7 +4135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.41, y: 0.63}
+  m_AnchoredPosition: {x: -0.02, y: 0.63}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1360337298
@@ -4195,7 +4189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hand: {fileID: 841459161}
-  jointToTrack: 6
+  jointToTrack: 0
   objectToRotate: {fileID: 1360337295}
   _uiElement: {fileID: 1360337296}
   activestategroup: {fileID: 1765249518}
@@ -6098,7 +6092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1615011132
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6623,8 +6617,8 @@ GameObject:
   - component: {fileID: 1856132219}
   - component: {fileID: 1856132218}
   - component: {fileID: 1856132220}
-  - component: {fileID: 1856132222}
   - component: {fileID: 1856132223}
+  - component: {fileID: 1856132224}
   m_Layer: 6
   m_Name: Image (2)
   m_TagString: Untagged
@@ -6707,32 +6701,6 @@ MonoBehaviour:
   objectToSelect: {fileID: 1856132215}
   isselect: 0
   t: {fileID: 1451907691}
---- !u!61 &1856132222
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856132215}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &1856132223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6745,7 +6713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0ffd2bf0046e654583cf4c0e8b712de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handTransform: {fileID: 567152765}
   headTransform: {fileID: 945317882}
   _jointToLog: 0
   JointDelta: {fileID: 1765249515}
@@ -6753,6 +6720,19 @@ MonoBehaviour:
   _hand: {fileID: 841459161}
   rayLength: 10
   t: {fileID: 1451907691}
+--- !u!65 &1856132224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856132215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1907744960
 GameObject:
   m_ObjectHideFlags: 0
@@ -6975,6 +6955,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997169203}
   m_CullTransparentMesh: 1
+--- !u!4 &2006221000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2483171112402263012, guid: f54012181eacade4ea242c65f804720f, type: 3}
+  m_PrefabInstance: {fileID: 841459158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014433323
 GameObject:
   m_ObjectHideFlags: 0

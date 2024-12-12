@@ -31,8 +31,8 @@ public class GestureRotation : MonoBehaviour
 
     void Update()
     {
-        if (activestategroup.Active)
-        {
+        /*if (activestategroup.Active)
+        {*/
             // 获取当前手部的位置
             if (hand.GetJointPose(jointToTrack, out Pose currentPose))
             {
@@ -81,6 +81,6 @@ public class GestureRotation : MonoBehaviour
                 // 更新上一帧的位置
                 lastPosition = currentPosition;
             }
-        }
+        /*}*/
     }
 }
