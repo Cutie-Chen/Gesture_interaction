@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using Oculus.Interaction.PoseDetection;
 using TMPro;
 using Oculus.Interaction;
-
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 public class HandRaycast : MonoBehaviour
 {
     //public Transform handTransform; // 手部位置
@@ -15,14 +16,14 @@ public class HandRaycast : MonoBehaviour
     private HandJointId _jointToLog = HandJointId.HandStart;
     //public EnhancedJointVelocityState velocityState;
     public JointDeltaProvider JointDelta;
-    public float maxRayDistance = 10f; // 射线最大距离
+    public float maxRayDistance = 20f; // 射线最大距离
     [SerializeField, Interface(typeof(IHand))]
     private UnityEngine.Object _hand;
     private IHand Hand;
     //public GameObject targetObject;
     
     // 射线的长度
-    public float rayLength = 10f;
+    public float rayLength = 20f;
     public TextMeshProUGUI t;
     // LineRenderer 组件
     private LineRenderer lineRenderer;
@@ -89,6 +90,7 @@ public class HandRaycast : MonoBehaviour
                 t.text = "选中了";
             }
         }
+       
         else
             t.text = "未选中";
 

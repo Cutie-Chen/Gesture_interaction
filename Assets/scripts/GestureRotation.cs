@@ -53,29 +53,39 @@ public class GestureRotation : MonoBehaviour
                     // 计算上一帧与当前帧在XY平面上的方向变化
                     Vector3 deltaXY = currentPositionXY - lastPositionXY;
 
-                    // 计算上一帧与当前帧之间的夹角
-                    float angle = Vector3.SignedAngle(lastPositionXY, currentPositionXY, Vector3.forward);
+                // 计算上一帧与当前帧之间的夹角
+                //float angle = Vector3.SignedAngle(lastPositionXY, currentPositionXY, Vector3.forward);
+                
+                // 使用 Atan2 计算两点的极角
+                float lastAngle = Mathf.Atan2(lastPositionXY.y, lastPositionXY.x) * Mathf.Rad2Deg; // 转为角度
+                float currentAngle = Mathf.Atan2(currentPositionXY.y, currentPositionXY.x) * Mathf.Rad2Deg; // 转为角度
+
+                // 计算角度差（考虑方向性）
+                float angleDelta = Mathf.DeltaAngle(lastAngle, currentAngle); // 自动计算角度差（正负值）
 
 
-                    // 根据角度判断旋转方向，并累加旋转角度
-                    if (Mathf.Abs(angle) > 0.5f) // 防止微小误差导致的旋转
-                    {
-                        rotationAngle += angle * rotationSpeed; // 使用原始角度而非绝对值
-                    }
-
-                    /*if (Mathf.Abs(angle) > rotationThreshold) // 如果位移角度变化大，可能是画圈手势
-                     {
-                         
-                         rotationAngle += angle * rotationSpeed; // 使用原始角度而非绝对值
-                     }
-                     else
-                     {
-
-                        _uiElement.anchoredPosition += new Vector2(wristPosition.x, wristPosition.y) * sensitivity;
-                    }
-*/
-                    // 更新物体的旋转
+                // 根据角度判断旋转方向，并累加旋转角度
+                if (Mathf.Abs(angleDelta) > 0.5f) // 防止微小误差导致的旋转
+                {
+                    // 根据角度变化更新旋转角度
+                    rotationAngle += angleDelta * rotationSpeed; // angleDelta 本身有方向性
                     objectToRotate.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
+
+                }
+
+                /*if (Mathf.Abs(angle) > rotationThreshold) // 如果位移角度变化大，可能是画圈手势
+                 {
+
+                     rotationAngle += angle * rotationSpeed; // 使用原始角度而非绝对值
+                 }
+                 else
+                 {
+
+                    _uiElement.anchoredPosition += new Vector2(wristPosition.x, wristPosition.y) * sensitivity;
+                }
+*/
+                // 更新物体的旋转
+                objectToRotate.transform.rotation = Quaternion.Euler(0, 0, rotationAngle);
                 }
 
                 // 更新上一帧的位置

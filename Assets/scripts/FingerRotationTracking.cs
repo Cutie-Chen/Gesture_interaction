@@ -9,16 +9,20 @@ public class FingerRotationTracking : MonoBehaviour
     public HandJointId jointId = HandJointId.HandIndex3; // 追踪食指末端
     [SerializeField, Interface(typeof(IHand))]
     private UnityEngine.Object _hand;
-    private IHand Hand;
+    public EnhancedJointVelocityState ve;
+    public GameObject game;
+    //private IHand Hand;
+    [SerializeField]
+    private Hand hand;
     public GameObject ui;
     private void Awake()
     {
-        Hand = _hand as IHand;
+        //Hand = _hand as IHand;
     }
     private void Update()
     {
         // 获取旋转增量
-       if (Hand.GetJointPose(jointId, out Pose wristPose) &&
+       if (hand.GetJointPose(jointId, out Pose wristPose) &&
        jointDeltaProvider.GetRotationDelta(jointId, out Quaternion worldDeltaRotation))
         {
             //Vector3 worldTargetAxis = GetWorldTargetAxis(wristPose, config);
@@ -27,6 +31,7 @@ public class FingerRotationTracking : MonoBehaviour
             //float rotationOnTargetAxis = angle * axisDifference;
             // 将旋转增量应用于物体
             RectTransform uiRect = ui.GetComponent<RectTransform>();
+            game.transform.rotation = Quaternion.Euler(0, 0, angle);
 
             uiRect.rotation *= worldDeltaRotation;
         }
