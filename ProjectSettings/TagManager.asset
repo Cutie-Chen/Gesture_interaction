@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - taga
+  - QDSUIToggleBorderlessButton
+  - select
+  - unselect
   layers:
   - Default
   - TransparentFX

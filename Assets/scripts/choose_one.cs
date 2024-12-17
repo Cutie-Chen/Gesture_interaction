@@ -16,9 +16,11 @@ public class choose_one : MonoBehaviour
     [SerializeField]
     public List<GameObject> objectsToSelect = new List<GameObject>(); // 需要选择的多个UI元素（UI 物体）
     private List<RectTransform> objectRectTransforms = new List<RectTransform>(); // 存储所有UI元素的RectTransform
-    public bool isselect;
+    public ActiveStateGroup activestategroup;
+    //public bool isselect;
     public TextMeshProUGUI t;
     private GameObject selectedObject = null; // 当前被选中的UI元素
+    private GameObject lastselect = null;
     void Start()
     {
         // 获取所有UI元素的RectTransform组件
@@ -60,33 +62,41 @@ public class choose_one : MonoBehaviour
     void Update()
     {
         Pose currentPose;
-
-        // 获取当前手部关节的位置
-        if (hand.GetJointPose(jointToTrack, out currentPose))
+        if (activestategroup.Active)
         {
-            Vector3 handPosition = currentPose.position;  // 获取关节位置
-
-            selectedObject = null;  // 默认没有选中任何对象
-
-            // 遍历所有UI元素，检查手指是否在某个UI元素的区域内
-            foreach (var rectTransform in objectRectTransforms)
+            // 获取当前手部关节的位置
+            if (hand.GetJointPose(jointToTrack, out currentPose))
             {
-                if (IsJointInsideObject(handPosition, rectTransform))
+                Vector3 handPosition = currentPose.position;  // 获取关节位置
+
+                selectedObject = null;  // 默认没有选中任何对象
+
+                // 遍历所有UI元素，检查手指是否在某个UI元素的区域内
+                foreach (var rectTransform in objectRectTransforms)
                 {
-                    selectedObject = rectTransform.gameObject; // 设置为当前选中的UI元素
-                    break; // 一旦选中一个元素，跳出循环
+                    if (IsJointInsideObject(handPosition, rectTransform))
+                    {
+                        selectedObject = rectTransform.gameObject; // 设置为当前选中的UI元素
+                        break; // 一旦选中一个元素，跳出循环
+                    }
                 }
             }
-        }
 
-        // 根据选中的UI元素显示文本
-        if (selectedObject != null)
-        {
-            t.text = $"选中了: {selectedObject.name}";
-        }
-        else
-        {
-            t.text = "未选中";
+            // 根据选中的UI元素显示文本
+            if (selectedObject != null)
+            {
+                selectedObject.tag = "select";
+                t.text = $"选中了: {selectedObject.name}+{selectedObject.tag}";
+                selectedObject.tag = "select";
+
+                lastselect.tag = "unselect";
+            }
+            else
+            {
+                t.text = "未选中";
+
+            }
+            lastselect = selectedObject;
         }
     }
 

@@ -10,8 +10,9 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 public class RotateImage : MonoBehaviour
 {
+    public TextMeshProUGUI text;
     public RectTransform image; // 需要旋转的图片对象
-    private Vector3 initialFingerPos; // 手指的初始位置
+    private Vector2 initialFingerPos; // 手指的初始位置
     private Quaternion initialImageRotation; // 初始的图片旋转
     Vector3 fingerPos;
     private bool isRotating = false; // 判断是否处于旋转状态
@@ -24,6 +25,8 @@ public class RotateImage : MonoBehaviour
     // 图片的外切圆半径（假设是正方形，且尺寸已知）
     private float radius;
     float threshold;
+    Vector2 direction;
+    Vector2 point;
     private void Awake()
     {
         Hand = _hand as IHand;
@@ -40,11 +43,15 @@ public class RotateImage : MonoBehaviour
     {
         fingerPos = getposition();
         isRotating=IsJointInsideObject(fingerPos, threshold);
+        initialFingerPos.x = getposition().x;
+        initialFingerPos.y = getposition().y;
+        initialImageRotation = image.rotation;
+        isRotating = true;
         if (isRotating)
         {
             // 将手指的位置映射到外切圆上
-            Vector3 mappedFingerPos = MapToCircumference(fingerPos);
-
+            Vector2 mappedFingerPos = MapToCircumference(fingerPos);
+            //text.text = $"{ mappedFingerPos}";
             // 计算旋转角度
             float angle = CalculateRotationAngle(initialFingerPos, mappedFingerPos);
 
@@ -64,25 +71,32 @@ public class RotateImage : MonoBehaviour
     
 
     // 将手指位置映射到图片外切圆上
-    Vector3 MapToCircumference(Vector3 fingerPos)
+    Vector2 MapToCircumference(Vector3 fingerPos)
     {
         // 计算手指位置的单位向量
-        Vector3 direction = fingerPos - image.position;
-        direction.Normalize();
 
+        direction.x =fingerPos.x - image.position.x;
+        direction.y=fingerPos.y -image.position.y;
+        direction.Normalize();
+        point.x=image.position.x + direction.x * radius;
+        point.y = image.position.y + direction.y * radius;
         // 返回外切圆上的交点
-        return image.position + direction * radius;
+        return point;
     }
 
     // 计算两个向量之间的角度
-    float CalculateRotationAngle(Vector3 startPos, Vector3 endPos)
+    float CalculateRotationAngle(Vector2 startPos, Vector2 endPos)
     {
         // 计算起始点和结束点的向量
-        Vector3 startDir = startPos - image.position;
-        Vector3 endDir = endPos - image.position;
+        Vector2 startDir;
+        Vector2 endDir;
+        startDir.x= startPos.x - image.position.x;
+        startDir.y = startPos.y - image.position.y;
+        endDir.x = endPos.x - image.position.x;
+        endDir.y = endPos.y - image.position.y;
 
         // 计算它们的夹角
-        float angle = Vector3.SignedAngle(startDir, endDir, Vector3.forward);
+        float angle = Vector2.SignedAngle(startDir, endDir);
 
         return angle;
     }
