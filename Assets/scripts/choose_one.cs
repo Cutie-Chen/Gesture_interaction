@@ -14,38 +14,42 @@ public class choose_one : MonoBehaviour
     private Hand hand;
     public HandJointId jointToTrack = HandJointId.HandStart; // 跟踪的关节，手腕
     [SerializeField]
-    public GameObject objectToSelect; // 需要选择的 UI 元素（UI 物体）
-    private RectTransform objectRectTransform;
+    public List<GameObject> objectsToSelect = new List<GameObject>(); // 需要选择的多个UI元素（UI 物体）
+    private List<RectTransform> objectRectTransforms = new List<RectTransform>(); // 存储所有UI元素的RectTransform
     public bool isselect;
     public TextMeshProUGUI t;
-    
+    private GameObject selectedObject = null; // 当前被选中的UI元素
     void Start()
     {
-        // 获取物体的 RectTransform 组件
-        objectRectTransform = objectToSelect.GetComponent<RectTransform>();
-
-        if (objectRectTransform == null)
+        // 获取所有UI元素的RectTransform组件
+        foreach (var obj in objectsToSelect)
         {
-            Debug.LogError("The object does not have a RectTransform component.");
+            var rectTransform = obj.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                objectRectTransforms.Add(rectTransform);
+            }
+            else
+            {
+                Debug.LogError($"Object {obj.name} does not have a RectTransform component.");
+            }
         }
     }
     // Start is called before the first frame update
-    public bool IsJointInsideObject(Vector3 handPosition)
+    // 判断手部关节是否在UI元素范围内
+    public bool IsJointInsideObject(Vector3 handPosition, RectTransform rectTransform)
     {
-        // 获取 UI 元素的世界坐标范围
-        //EventSystem system = new EventSystem();
-        //system.RaycastAll()
         Vector3[] worldCorners = new Vector3[4];
-        objectRectTransform.GetWorldCorners(worldCorners);
-        
-        // 获取 UI 元素的 2D 边界框
+        rectTransform.GetWorldCorners(worldCorners); // 获取UI元素的四个角的世界坐标
+
+        // 获取UI元素的2D边界框
         Vector3 topLeft = worldCorners[1];  // 左上角
         Vector3 bottomRight = worldCorners[3];  // 右下角
 
         // 获取手部关节的位置，并投影到屏幕空间
         Vector3 jointPosition = new Vector3(handPosition.x, handPosition.y, 0);  // 忽略 Z 轴
 
-        // 判断关节是否在 UI 元素的边界框内
+        // 判断关节是否在UI元素的2D边界框内
         bool isInside = jointPosition.x >= topLeft.x && jointPosition.x <= bottomRight.x &&
                         jointPosition.y >= bottomRight.y && jointPosition.y <= topLeft.y;
 
@@ -62,20 +66,28 @@ public class choose_one : MonoBehaviour
         {
             Vector3 handPosition = currentPose.position;  // 获取关节位置
 
-            // 判断关节是否在物体范围内
-            bool isInside = IsJointInsideObject(handPosition);
-            if (isInside)
+            selectedObject = null;  // 默认没有选中任何对象
+
+            // 遍历所有UI元素，检查手指是否在某个UI元素的区域内
+            foreach (var rectTransform in objectRectTransforms)
             {
-                isselect = true;
-            }
-            else
-            {
-                isselect = false;
+                if (IsJointInsideObject(handPosition, rectTransform))
+                {
+                    selectedObject = rectTransform.gameObject; // 设置为当前选中的UI元素
+                    break; // 一旦选中一个元素，跳出循环
+                }
             }
         }
-        if (isselect)
-            t.text = "选中了";
+
+        // 根据选中的UI元素显示文本
+        if (selectedObject != null)
+        {
+            t.text = $"选中了: {selectedObject.name}";
+        }
         else
+        {
             t.text = "未选中";
+        }
     }
+
 }
