@@ -3,6 +3,8 @@ namespace AI.FSM {
         Default,
         index_up,
         T3,
-        T4
+        T4,
+        rotate,
+        transfer
     }
 }

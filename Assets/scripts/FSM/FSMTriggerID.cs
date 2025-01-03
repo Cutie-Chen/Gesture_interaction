@@ -5,7 +5,8 @@ namespace AI.FSM {
        index_up_shape,
        index_up_move,
        index_up_rotate,
-       
+       transfer,
+       rotate
 
     }
 }

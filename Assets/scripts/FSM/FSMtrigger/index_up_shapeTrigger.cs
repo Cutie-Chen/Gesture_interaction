@@ -9,7 +9,7 @@ public class index_up_shapeTrigger : AI.FSM.FSMTrigger
     {
         //ÅĞ¶ÏÌõ¼şÂú²»Âú×ã
         var gesture_fsm = fsm as gesture_fsm;
-        return gesture_fsm.index_up_activegroup.Active;
+        return true;
     }
 
     protected override void init()
