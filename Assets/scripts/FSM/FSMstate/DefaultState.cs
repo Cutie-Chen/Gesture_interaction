@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DefaultState : AI.FSM.FSMState
+namespace AI.FSM
 {
-    protected override void init()
+    public class DefaultState : AI.FSM.FSMState
     {
-        this.StateID = AI.FSM.FSMStateID.Default;
-    }
+        protected override void init()
+        {
+            this.StateID = AI.FSM.FSMStateID.Default;
+        }
 
+    }
 }
