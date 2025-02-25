@@ -1,9 +1,16 @@
+using Oculus.Interaction;
+using TMPro;
 using UnityEngine;
+
 
 namespace AI.FSM {
     public class GestureFSM : FSMBase {
         [HideInInspector]
-        public Object/* todo: 修改这个类型为IGrabbable*/ grabbedItem;
+        public Grabbable grabbedItem;
+        public OneGrabRotateTransformer rotateTransformer;
+        public OneGrabTranslateTransformer translateTransformer;
+        public InteractableGroupView[] interactableGroupViews;
+        public TextMeshProUGUI text;
         protected override void SetUpFSM() {
             base.SetUpFSM();
 

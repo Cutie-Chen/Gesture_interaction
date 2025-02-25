@@ -6,15 +6,19 @@ namespace AI.FSM {
         // 从GestureFSM获取grabbedItem，并调用对应函数处理
         public override void OnStateEnter(FSMBase fsm) {
             base.OnStateEnter(fsm);
-            // todo
+            var gestureFSM = fsm as GestureFSM;
+            gestureFSM.translateTransformer.Initialize(gestureFSM.grabbedItem);
+            gestureFSM.translateTransformer.BeginTransform();
         }
         public override void OnStateStay(FSMBase fsm) {
             base.OnStateStay(fsm);
-            // todo
+            var gestureFSM = fsm as GestureFSM;
+            gestureFSM.translateTransformer.UpdateTransform();
         }
         public override void OnStateExit(FSMBase fsm) {
             base.OnStateExit(fsm);
-            // todo
+            var gestureFSM = fsm as GestureFSM;
+            gestureFSM.translateTransformer.EndTransform();
         }
     }
 }
