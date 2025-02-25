@@ -1,7 +1,7 @@
 namespace AI.FSM {
-    public class RotateState : FSMState {
+    public class TranslateState : FSMState {
         protected override void init() {
-            this.StateID = FSMStateID.Rotate;
+            this.StateID = FSMStateID.Translate;
         }
         // 从GestureFSM获取grabbedItem，并调用对应函数处理
         public override void OnStateEnter(FSMBase fsm) {

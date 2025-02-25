@@ -1,16 +1,16 @@
 namespace AI.FSM {
-    public class RotateState : FSMState {
+    public class SelectState : FSMState {
         protected override void init() {
-            this.StateID = FSMStateID.Rotate;
+            this.StateID = FSMStateID.Select;
         }
-        // 从GestureFSM获取grabbedItem，并调用对应函数处理
         public override void OnStateEnter(FSMBase fsm) {
             base.OnStateEnter(fsm);
             // todo
         }
         public override void OnStateStay(FSMBase fsm) {
             base.OnStateStay(fsm);
-            // todo
+            var gestureFSM = fsm as GestureFSM;
+            // todo: 将选中的物体保存到gestureFSM
         }
         public override void OnStateExit(FSMBase fsm) {
             base.OnStateExit(fsm);
