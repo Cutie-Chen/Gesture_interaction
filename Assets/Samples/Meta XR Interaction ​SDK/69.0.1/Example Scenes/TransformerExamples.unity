@@ -349,11 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultStateID: 4
   animator: {fileID: 0}
-  index_up_activegroup: {fileID: 0}
-  JointVelocityState: {fileID: 0}
-  _jointToLog: 0
-  _uiElement: {fileID: 0}
-  sensitivity: 10
   rotate_transformer: {fileID: 0}
   translate_transformer: {fileID: 0}
   threshold: 0
@@ -475,17 +470,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8807312835454417492, guid: 63b105a6ee122134295e170669579854, type: 3}
   m_PrefabInstance: {fileID: 333668707}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &333668710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6376031429322947806, guid: 63b105a6ee122134295e170669579854, type: 3}
-  m_PrefabInstance: {fileID: 333668707}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &404264615
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +484,8 @@ GameObject:
   - component: {fileID: 404264620}
   - component: {fileID: 404264619}
   - component: {fileID: 404264618}
-  - component: {fileID: 404264625}
   - component: {fileID: 404264616}
+  - component: {fileID: 404264624}
   m_Layer: 4
   m_Name: Cube
   m_TagString: Untagged
@@ -643,7 +627,7 @@ Transform:
   m_Father: {fileID: 992528664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &404264625
+--- !u!114 &404264624
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -652,27 +636,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 404264615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9597e632dfbca247bcf65e49c67078e, type: 3}
+  m_Script: {fileID: 11500000, guid: 124f4583f657475469a45ab6fca8f921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pivotTransform: {fileID: 0}
+  _rotationAxis: 2
   _constraints:
-    ConstraintsAreRelative: 0
-    MinX:
+    MinAngle:
       Constrain: 0
       Value: 0
-    MaxX:
-      Constrain: 0
-      Value: 0
-    MinY:
-      Constrain: 0
-      Value: 0
-    MaxY:
-      Constrain: 0
-      Value: 0
-    MinZ:
-      Constrain: 0
-      Value: 0
-    MaxZ:
+    MaxAngle:
       Constrain: 0
       Value: 0
 --- !u!4 &437841092 stripped
@@ -1001,7 +974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &838853514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3707,7 +3680,7 @@ MonoBehaviour:
   _transferOnSecondSelection: 0
   _addNewPointsToFront: 0
   _forwardElement: {fileID: 0}
-  _oneGrabTransformer: {fileID: 1174620999028301743}
+  _oneGrabTransformer: {fileID: 0}
   _twoGrabTransformer: {fileID: 0}
   _targetTransform: {fileID: 0}
   _maxGrabPoints: -1
@@ -3810,11 +3783,8 @@ GameObject:
   - component: {fileID: 1174620999028301731}
   - component: {fileID: 1174620999028301729}
   - component: {fileID: 1174620999028301743}
-  - component: {fileID: 1174620999028301746}
-  - component: {fileID: 1174620999028301745}
-  - component: {fileID: 1174620999028301744}
   m_Layer: 4
-  m_Name: transferCube
+  m_Name: translateCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3852,99 +3822,6 @@ MonoBehaviour:
     MaxZ:
       Constrain: 0
       Value: 0
---- !u!114 &1174620999028301744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174620999028301742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pointable: {fileID: 333668710}
-  _whenRelease:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1174620999028301746}
-        m_TargetAssemblyTypeName: Oculus.Interaction.CustomGrabTransformer, Assembly-CSharp
-        m_MethodName: UpdateTransform
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1174620999028301746}
-        m_TargetAssemblyTypeName: Oculus.Interaction.CustomGrabTransformer, Assembly-CSharp
-        m_MethodName: EndTransform
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenMove:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenCancel:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1174620999028301745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174620999028301742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 124f4583f657475469a45ab6fca8f921, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pivotTransform: {fileID: 0}
-  _rotationAxis: 2
-  _constraints:
-    MinAngle:
-      Constrain: 0
-      Value: 0
-    MaxAngle:
-      Constrain: 0
-      Value: 0
---- !u!114 &1174620999028301746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1174620999028301742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa31b84c7557d247b3f9db536d86a69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _translateTransformer: {fileID: 1174620999028301743}
-  _rotateTransformer: {fileID: 1174620999028301745}
 --- !u!54 &1174620999618625552
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4009,7 +3886,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1174620999705733762
 Transform:
   m_ObjectHideFlags: 0
