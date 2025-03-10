@@ -403,7 +403,7 @@ MonoBehaviour:
   _featureConfigs:
     _values:
     - _mode: 0
-      _feature: 0
+      _feature: 6
       _state: 
       _relativeTo: 1
       _worldAxis: 0
@@ -10051,10 +10051,10 @@ MonoBehaviour:
   _featureConfigs:
     _values:
     - _mode: 0
-      _feature: 0
+      _feature: 6
       _state: 
       _relativeTo: 1
-      _worldAxis: 0
+      _worldAxis: 1
       _handAxis: 0
       _headAxis: 0
   _minVelocity: 0.5
