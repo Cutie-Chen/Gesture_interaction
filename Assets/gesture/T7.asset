@@ -21,6 +21,9 @@ MonoBehaviour:
     - _mode: 1
       _feature: 1
       _state: 5
+    - _mode: 0
+      _feature: 2
+      _state: 8
   _indexFeatureConfigs:
     _value:
     - _mode: 1
