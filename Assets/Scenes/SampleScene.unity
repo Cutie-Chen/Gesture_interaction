@@ -7939,6 +7939,7 @@ GameObject:
   - component: {fileID: 1218539905}
   - component: {fileID: 1218539904}
   - component: {fileID: 1218539902}
+  - component: {fileID: 1218539911}
   m_Layer: 0
   m_Name: T12_gesture_R
   m_TagString: Untagged
@@ -7953,7 +7954,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1218539901}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 91629c29fa7084f4bb4cd2da4084251f, type: 3}
   m_Name: 
@@ -8114,6 +8115,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1218539911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218539901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0ef730d845dc24b8e472422b059498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fistDetector: {fileID: 1060246069}
+  _thumbOutDetector: {fileID: 1218539907}
+  _maxInterval: 0.8
+  _minHoldTime: 0.1
+  t: {fileID: 1941584024}
 --- !u!1 &1285129927
 GameObject:
   m_ObjectHideFlags: 0

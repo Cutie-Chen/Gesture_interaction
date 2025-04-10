@@ -56,7 +56,7 @@ namespace Oculus.Interaction.PoseDetection
                         _firstDetectionTime = Time.time;
                         _currentState = DetectionState.WaitingSecond;
                         f_activate = false;
-                        t.text = "第一次击打";
+                        //t.text = "第一次击打";
                     }
                     break;
 
@@ -81,7 +81,7 @@ namespace Oculus.Interaction.PoseDetection
                             _activated = true;
                             _lastDetectionTime = Time.time;
                             _currentState = DetectionState.Cooldown;
-                            t.text = "第二次击打";
+                            //t.text = "第二次击打";
                             f_activate = false;
                         }
                     }
@@ -103,7 +103,7 @@ namespace Oculus.Interaction.PoseDetection
             {
                 _activated = false;
                 f_activate = false;
-                t.text = "清除状态";
+                //t.text = "清除状态";
             }
         }
 
@@ -113,7 +113,7 @@ namespace Oculus.Interaction.PoseDetection
             _firstDetectionTime = 0;
             _activated = false;
             f_activate = false;
-            t.text = "初始状态";
+            //t.text = "初始状态";
         }
 
         #region Inject
