@@ -7,7 +7,7 @@ public class DoubleSwitchDetector : MonoBehaviour, IActiveState
     [SerializeField] private ActiveStateGroup _thumbOutDetector;
 
     // 手势组合的时间限制：双击手势要在这个时间范围内完成
-    [SerializeField, Range(0.1f, 2f)] private float _maxInterval = 0.8f;
+    [SerializeField, Range(0.1f, 3f)] private float _maxInterval = 0.8f;
 
     // 每个手势要保持的最短时间，防止“抖动式误触”
     [SerializeField, Range(0.05f, 0.5f)] private float _minHoldTime = 0.1f;
@@ -24,7 +24,7 @@ public class DoubleSwitchDetector : MonoBehaviour, IActiveState
     private float _firstStepTime;
 
     // 检测结果（是否完成一整套动作）
-    private bool _activated = false;
+    private bool _activated;
     public bool Active => _activated;
 
     // 用于检测“手势是否刚刚触发”
@@ -57,7 +57,7 @@ public class DoubleSwitchDetector : MonoBehaviour, IActiveState
                 break;
 
             case State.FistDetected:
-                if (TimeInState() > _minHoldTime && thumbJustActivated)
+                if (TimeInState() > _minHoldTime && thumbJustActivated)//thumbJustActivated)
                 {
                     StartStep(State.ThumbOut1);// 第二步：拇指伸出
                     t.text = "大拇指！";
@@ -70,30 +70,33 @@ public class DoubleSwitchDetector : MonoBehaviour, IActiveState
                 break;
 
             case State.ThumbOut1:
-                if (TimeSinceFirstStep() > _maxInterval)
-                {
-                   
-                    ResetState(); // 整体超时，取消识别
-                    return;
-                }
                 if (fistJustActivated)
                 {
                     StartStep(State.FistAgain);// 第三步：再握拳
                     t.text = "第二次握拳！";
                 }
+                else if (TimeInState() > _maxInterval * 0.5f)
+                {
+                    t.text = "超时";
+                    ResetState(); // 整体超时，取消识别
+                    //return;
+                }
+                
                 break;
 
             case State.FistAgain:
-                if (TimeSinceFirstStep() > _maxInterval)
-                {
-                    ResetState();// 整体超时
-                    return;
-                }
-                if (thumbJustActivated && TimeInState() > _minHoldTime)
+                if (TimeInState() > _minHoldTime && thumbJustActivated)
                 {
                     _activated = true;// 动作成功识别
-                    t.text="T12手势激活！";
+                    t.text=_activated.ToString();
+
                     ResetState();// 重置等待下次识别
+                }
+                else if (TimeSinceFirstStep() > _maxInterval)
+                {
+                    t.text = "整体超时";
+                    ResetState();// 整体超时
+                    return;
                 }
                 break;
         }
