@@ -12,12 +12,17 @@ namespace Oculus.Interaction.PoseDetection
         private JointVelocityActiveState forward_dector;
         [SerializeField]
         private JointVelocityActiveState back_dector;
+        [SerializeField]
+        private TransformRecognizerActiveState tran;
+        [SerializeField]
+        private ShapeRecognizerActiveState shape;
 
         [SerializeField, Min(0.1f)]
         private float _maxInterval = 0.5f;
 
         [SerializeField, Min(0)]
         private float _cooldown = 0.2f;
+
         public TextMeshProUGUI t;
 
         private enum DetectionState
@@ -31,13 +36,18 @@ namespace Oculus.Interaction.PoseDetection
         private float _firstDetectionTime;
         private float _lastDetectionTime;
         private bool _activated;
-        private bool f_activate=false;
+        private bool f_activate = false;
+
+        private bool windowOpen = false; // 窗口是否打开
 
         public bool Active => _activated;
 
         private void Update()
         {
-            UpdateStateMachine();
+            if (tran.Active && shape.Active)
+            {
+                UpdateStateMachine();
+            }
             CleanState();
         }
 
@@ -49,44 +59,41 @@ namespace Oculus.Interaction.PoseDetection
                     if (forward_dector.Active)
                     {
                         f_activate = true;
-                        //t.text = "向前";
                     }
-                    if (f_activate &&back_dector.Active)
+                    if (f_activate && back_dector.Active)
                     {
                         _firstDetectionTime = Time.time;
                         _currentState = DetectionState.WaitingSecond;
                         f_activate = false;
-                        //t.text = "第一次击打";
                     }
                     break;
 
                 case DetectionState.WaitingSecond:
-                    // 如果超过最大时间间隔，重置状态
                     if (Time.time - _firstDetectionTime > _maxInterval)
                     {
                         ResetState();
                     }
                     else
                     {
-                        // 如果满足前向动作并且时间间隔超过0.1秒，激活前向动作
                         if (forward_dector.Active)
                         {
                             f_activate = true;
-                            //t.text = "向前";
                         }
 
-                        // 如果前向动作已经激活且检测到后向动作，完成第二次击打
                         if (f_activate && back_dector.Active)
                         {
                             _activated = true;
                             _lastDetectionTime = Time.time;
                             _currentState = DetectionState.Cooldown;
-                            //t.text = "第二次击打";
                             f_activate = false;
+
+                            // 控制窗口开关逻辑
+                            windowOpen = !windowOpen;
+                            
+                            t.text = windowOpen ? "T10 激活病人片子序列" : "T10 关闭病人片子序列";
                         }
                     }
                     break;
-
 
                 case DetectionState.Cooldown:
                     if (Time.time - _lastDetectionTime > _cooldown)
@@ -103,7 +110,6 @@ namespace Oculus.Interaction.PoseDetection
             {
                 _activated = false;
                 f_activate = false;
-                //t.text = "清除状态";
             }
         }
 
@@ -113,7 +119,6 @@ namespace Oculus.Interaction.PoseDetection
             _firstDetectionTime = 0;
             _activated = false;
             f_activate = false;
-            //t.text = "初始状态";
         }
 
         #region Inject
@@ -133,4 +138,5 @@ namespace Oculus.Interaction.PoseDetection
         }
         #endregion
     }
+
 }

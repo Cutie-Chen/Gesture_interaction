@@ -24,83 +24,93 @@ public class DoubleSwitchDetector : MonoBehaviour, IActiveState
     private float _firstStepTime;
 
     // 检测结果（是否完成一整套动作）
-    private bool _activated;
+    private bool _activated=false;
     public bool Active => _activated;
 
     // 用于检测“手势是否刚刚触发”
     private bool _wasFistActive = false;
     private bool _wasThumbOutActive = false;
-
+    private bool window_open = false;//判断当前窗口出于什么状态
     private void Update()
     {
-        // 当前帧的两个手势状态
         bool isFistNow = _fistDetector.Active;
         bool isThumbNow = _thumbOutDetector.Active;
 
-        // 边缘触发检测：是否“刚刚识别到”某手势
         bool fistJustActivated = isFistNow && !_wasFistActive;
         bool thumbJustActivated = isThumbNow && !_wasThumbOutActive;
 
-        // 更新上一帧记录
         _wasFistActive = isFistNow;
         _wasThumbOutActive = isThumbNow;
 
-        // 状态机主逻辑
+        // 如果窗口是打开状态，且用户只是握拳一次，就关闭窗口
+        if (window_open && _currentState == State.Idle && fistJustActivated)
+        {
+            window_open = false;
+            t.text = "T12 关闭信息窗口";
+            ResetState();
+            return;
+        }
+
         switch (_currentState)
         {
             case State.Idle:
                 if (fistJustActivated)
                 {
                     StartStep(State.FistDetected); // 第一步：握拳
-                    t.text = "握拳！";
+                    //t.text = "握拳！";
                 }
                 break;
 
             case State.FistDetected:
-                if (TimeInState() > _minHoldTime && thumbJustActivated)//thumbJustActivated)
+                if (TimeInState() > _minHoldTime && thumbJustActivated)
                 {
-                    StartStep(State.ThumbOut1);// 第二步：拇指伸出
-                    t.text = "大拇指！";
+                    StartStep(State.ThumbOut1); // 第二步：拇指伸出
+                    //t.text = "大拇指！";
                 }
                 else if (TimeInState() > _maxInterval * 0.5f)
                 {
-                    t.text = "超时";
-                    ResetState();// 超时，重置
+                    //t.text = "超时";
+                    ResetState();
                 }
                 break;
 
             case State.ThumbOut1:
                 if (fistJustActivated)
                 {
-                    StartStep(State.FistAgain);// 第三步：再握拳
-                    t.text = "第二次握拳！";
+                    StartStep(State.FistAgain); // 第三步：再握拳
+                    //t.text = "第二次握拳！";
                 }
                 else if (TimeInState() > _maxInterval * 0.5f)
                 {
-                    t.text = "超时";
-                    ResetState(); // 整体超时，取消识别
-                    //return;
+                    //t.text = "超时";
+                    ResetState();
                 }
-                
                 break;
 
             case State.FistAgain:
                 if (TimeInState() > _minHoldTime && thumbJustActivated)
                 {
-                    _activated = true;// 动作成功识别
-                    t.text=_activated.ToString();
+                    _activated = true;
 
-                    ResetState();// 重置等待下次识别
+                    // 🟢 只有在窗口关闭的情况下，T12 才执行“打开”
+                    if (!window_open)
+                    {
+                        window_open = true;
+                        t.text = "T12 激活信息窗口";
+                    }
+
+                    ResetState();
                 }
                 else if (TimeSinceFirstStep() > _maxInterval)
                 {
                     t.text = "整体超时";
-                    ResetState();// 整体超时
+                    ResetState();
                     return;
                 }
                 break;
         }
     }
+
 
     // 进入新状态的统一方法（并记录时间）
     private void StartStep(State newState)

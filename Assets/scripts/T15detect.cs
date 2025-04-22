@@ -2,20 +2,20 @@ using Oculus.Interaction;
 using UnityEngine;
 using TMPro;
 
-public class T1detect : MonoBehaviour, IActiveState
+public class T15detect : MonoBehaviour, IActiveState
 {
-    [SerializeField] private ActiveStateGroup L;
-    [SerializeField] private ActiveStateGroup touch;
+    [SerializeField] private ActiveStateGroup palmdown;
+    [SerializeField] private ActiveStateGroup palmup;
 
     // 手势组合的时间限制：双击手势要在这个时间范围内完成
     [SerializeField, Range(0.1f, 3f)] private float _maxInterval = 0.8f;
 
     // 每个手势要保持的最短时间，防止“抖动式误触”
     [SerializeField, Range(0.05f, 0.5f)] private float _minHoldTime = 0.1f;
-    public TextMeshProUGUI t;
+    //public TextMeshProUGUI t;
 
     // 状态机中的四个状态，按顺序执行
-    private enum State { Idle, T1}
+    private enum State { Idle, T15 }
     private State _currentState = State.Idle;
 
     // 当前状态的进入时间
@@ -35,8 +35,8 @@ public class T1detect : MonoBehaviour, IActiveState
     private void Update()
     {
         // 当前帧的两个手势状态
-        bool isFistNow = L.Active;
-        bool isThumbNow = touch.Active;
+        bool isFistNow = palmdown.Active;
+        bool isThumbNow = palmup.Active;
 
         // 边缘触发检测：是否“刚刚识别到”某手势
         bool LJustActivated = isFistNow && !_wasFistActive;
@@ -52,16 +52,17 @@ public class T1detect : MonoBehaviour, IActiveState
             case State.Idle:
                 if (LJustActivated)
                 {
-                    StartStep(State.T1); // 第一步：握拳
-                    //t.text = "没接触";
+                    StartStep(State.T15); 
+                    //t.text = "xia";
                 }
                 break;
 
-            case State.T1:
+            case State.T15:
                 if (TimeInState() > _minHoldTime && touchJustActivated)//thumbJustActivated)
                 {
                     _activated = true;// 动作成功识别
-                    //t.text = "T1手势完成";
+                    //t.text = "成功";
+
                 }
                 else if (TimeSinceFirstStep() > _maxInterval)
                 {
@@ -70,7 +71,7 @@ public class T1detect : MonoBehaviour, IActiveState
                     return;
                 }
                 break;
-         
+
         }
     }
 
@@ -81,7 +82,7 @@ public class T1detect : MonoBehaviour, IActiveState
         _stateEnterTime = Time.time;
 
         // 记录第一步开始的时间（用于总时长判断）
-        if (newState == State.T1)
+        if (newState == State.T15)
             _firstStepTime = Time.time;
     }
     // 重置状态机
