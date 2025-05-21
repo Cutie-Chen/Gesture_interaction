@@ -125,7 +125,7 @@ public class GestureFunctionDisplay : MonoBehaviour
     }
     public void Flip_sz()
     {
-        displayText.text = "T15 翻转-数值";
+        displayText.text = "T15 翻转-竖直";
     }
     public void clean_text()
     {
