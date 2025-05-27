@@ -22,7 +22,10 @@ public class SyncUIWithVelocity : MonoBehaviour
     public float sensitivity = 5f; // 调整UI运动的敏感度
     private GameObject selectedObject = null; // 当前被选中的UI元素
     //public Camera worldCamera; // 用于计算的世界摄像机
-     bool T3_bool=false;
+   bool T3_bool=false;
+    [SerializeField]
+    public ActiveStateGroup T5;
+    public ActiveStateGroup T9;
     private void Awake()
     {
         if (_uiElement == null)
@@ -41,7 +44,7 @@ public class SyncUIWithVelocity : MonoBehaviour
     private void Update()
     {
        
-            if (T3_bool)
+            if (T3_bool&&!T5&&!T9)
             {
                 // 获取特定关节的速度和方向。
                 Vector3 wristPosition = velocityState.GetJointposition(_jointToLog);
