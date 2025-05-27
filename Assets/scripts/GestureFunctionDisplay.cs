@@ -3,6 +3,7 @@ using TMPro;
 using System.IO; // 用于文件读写
 using System;   // 用于 DateTime 和 Guid
 
+using Oculus.Interaction;
 public class GestureFunctionDisplay : MonoBehaviour
 {
     public TextMeshProUGUI displayText;
@@ -17,6 +18,9 @@ public class GestureFunctionDisplay : MonoBehaviour
     private const string LOG_FILE_NAME = "MyGestureActionsLog.csv"; // 您可以自定义日志文件名
     private const string CSV_FILE_HEADER = "Timestamp,SessionID,FrameCount,GestureName,Status";
 
+    [SerializeField]
+    public ActiveStateGroup T5;
+    public ActiveStateGroup T9;
     void Awake()
     {
         // 调用一次性的共享日志初始化函数
@@ -132,8 +136,10 @@ public class GestureFunctionDisplay : MonoBehaviour
     }
     public void Pan()
     {
-        displayText.text = "T3 平移（上下左右）";
-        WriteToLog("T3_Pan");
+        if (!T5 && !T9) {
+            displayText.text = "T3 平移（上下左右）";
+            WriteToLog("T3_Pan");
+        }
     }
 
     public void Rotate()
